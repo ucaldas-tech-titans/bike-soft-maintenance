@@ -3,7 +3,7 @@ package repositories
 import (
 	"fmt"
 
-	"github.com/anything-devs/bike-soft-rest-api.git/models"
+	"github.com/anything-devs/bike-soft-rest-api/models"
 	"gorm.io/gorm"
 )
 

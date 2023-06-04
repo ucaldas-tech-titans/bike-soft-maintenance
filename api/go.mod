@@ -1,4 +1,4 @@
-module github.com/anything-devs/bike-soft-rest-api.git
+module github.com/anything-devs/bike-soft-rest-api
 
 go 1.20
 

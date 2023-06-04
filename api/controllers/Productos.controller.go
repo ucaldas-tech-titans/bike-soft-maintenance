@@ -6,9 +6,9 @@ import (
 	"regexp"
 	"strconv"
 
-	"github.com/anything-devs/bike-soft-rest-api.git/configs"
-	"github.com/anything-devs/bike-soft-rest-api.git/models"
-	"github.com/anything-devs/bike-soft-rest-api.git/repositories"
+	"github.com/anything-devs/bike-soft-rest-api/configs"
+	"github.com/anything-devs/bike-soft-rest-api/models"
+	"github.com/anything-devs/bike-soft-rest-api/repositories"
 	"github.com/gin-gonic/gin"
 )
 
@@ -219,7 +219,6 @@ func (cp *ProductoControllerImpl) CrearProducto(ctx *gin.Context) {
 		ctx.JSON(http.StatusBadRequest, gin.H{"Error Codigo": "El código debe tener una longitud de 6 caracteres, 3 letras y 3 números"})
 		return
 	}
-
 }
 
 /*

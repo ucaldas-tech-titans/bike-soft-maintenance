@@ -6,9 +6,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/anything-devs/bike-soft-rest-api.git/controllers"
-	"github.com/anything-devs/bike-soft-rest-api.git/models"
-	"github.com/anything-devs/bike-soft-rest-api.git/repositories"
+	"github.com/anything-devs/bike-soft-rest-api/controllers"
+	"github.com/anything-devs/bike-soft-rest-api/models"
+	"github.com/anything-devs/bike-soft-rest-api/repositories"
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/assert/v2"
 )

@@ -3,7 +3,7 @@ package controllers
 import (
 	"net/http"
 
-	"github.com/anything-devs/bike-soft-rest-api.git/repositories"
+	"github.com/anything-devs/bike-soft-rest-api/repositories"
 	"github.com/gin-gonic/gin"
 )
 

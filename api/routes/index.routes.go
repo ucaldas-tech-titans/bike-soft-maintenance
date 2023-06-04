@@ -1,8 +1,8 @@
 package routes
 
 import (
-	"github.com/anything-devs/bike-soft-rest-api.git/controllers"
-	"github.com/anything-devs/bike-soft-rest-api.git/repositories"
+	"github.com/anything-devs/bike-soft-rest-api/controllers"
+	"github.com/anything-devs/bike-soft-rest-api/repositories"
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
 )
