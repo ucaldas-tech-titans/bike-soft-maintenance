@@ -62,3 +62,20 @@ flutter run
 ```
 
 Este comando iniciará la aplicación Flutter en un emulador o dispositivo físico si está conectado. Asegúrate de tener un emulador en ejecución o un dispositivo físico conectado antes de ejecutar este comando.
+
+### Ejecución de golangci-lint de Go
+
+Para ejecutar el Analisis estatico se requiere la instalación de "golangci-lint" mediante el comando:
+
+```shell
+go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.53.1"
+```
+Paso siguiente se ejecuta el comando dentro de la carpeta /api
+
+```shell
+golangci-lint run -c golanci.yml
+```
+
+
+
+
