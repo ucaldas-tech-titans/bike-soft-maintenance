@@ -102,32 +102,49 @@ func FiltroBajasUnidades(ctx *gin.Context) {
 * esto se debe hacer en la ruta http://localhost:8080/producto?nombre=&codigo=, puede ser cualquier parametro
  */
 func GetProducto(ctx *gin.Context) {
+	var productoGet models.ProductoGet
+
+	if ctx.ShouldBind(&productoGet) != nil {
+		ctx.JSON(http.StatusBadRequest, gin.H{"Error faltan datos": "Debe escribir un código o nombre de producto"})
+		return
+	}
+
+	if productoGet.Codigo != "" && productoGet.Nombre == "" {
+		getProductByCode(ctx)
+		return
+	}
+
+	getProductByName(ctx)
+}
+
+func getProductByCode(ctx *gin.Context) {
 	var productos []models.Producto
 	var productoGet models.ProductoGet
-	if ctx.ShouldBind(&productoGet) == nil {
 
-		match, _ := regexp.MatchString("^[[:alpha:]]{3}[[:digit:]]{3}$", productoGet.Codigo)
-		if productoGet.Codigo != "" && productoGet.Nombre == "" {
-			if !match {
-				ctx.JSON(http.StatusBadRequest, gin.H{"Error Codigo": "El código debe tener una longitud de 6 caracteres, 3 letras y 3 números"})
-				return
-			}
-			if err := configs.ConectarBD().Where("codigo= ?", productoGet.Codigo).First(&productos).Error; err != nil {
-				ctx.JSON(http.StatusNotFound, gin.H{ERROR: "Producto no encontrado por código en BD"})
-				return
-			}
-			ctx.JSON(http.StatusOK, productos)
-			return
-		} else {
-			if err := configs.ConectarBD().Where("nombre LIKE ?", productoGet.Nombre+"%").Find(&productos).Error; err != nil {
-				ctx.JSON(http.StatusNotFound, gin.H{ERROR: "Producto no encontrado por nombre en BD"})
-				return
-			}
-			ctx.JSON(http.StatusOK, productos)
-			return
-		}
+	match, _ := regexp.MatchString("^[[:alpha:]]{3}[[:digit:]]{3}$", productoGet.Codigo)
+	if !match {
+		ctx.JSON(http.StatusBadRequest, gin.H{"Error Codigo": "El código debe tener una longitud de 6 caracteres, 3 letras y 3 números"})
+		return
 	}
-	ctx.JSON(http.StatusBadRequest, gin.H{"Error faltan datos": "Debe escribir un código o nombre de producto"})
+
+	if err := configs.ConectarBD().Where("codigo= ?", productoGet.Codigo).First(&productos).Error; err != nil {
+		ctx.JSON(http.StatusNotFound, gin.H{ERROR: "Producto no encontrado por código en BD"})
+		return
+	}
+
+	ctx.JSON(http.StatusOK, productos)
+}
+
+func getProductByName(ctx *gin.Context) {
+	var productos []models.Producto
+	var productoGet models.ProductoGet
+
+	if err := configs.ConectarBD().Where("nombre LIKE ?", productoGet.Nombre+"%").Find(&productos).Error; err != nil {
+		ctx.JSON(http.StatusNotFound, gin.H{ERROR: "Producto no encontrado por nombre en BD"})
+		return
+	}
+
+	ctx.JSON(http.StatusOK, productos)
 }
 
 /*

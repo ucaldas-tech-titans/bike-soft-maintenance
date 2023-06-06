@@ -4,6 +4,7 @@ import (
 	"github.com/anything-devs/bike-soft-rest-api/configs"
 	"github.com/anything-devs/bike-soft-rest-api/models"
 	"github.com/anything-devs/bike-soft-rest-api/routes"
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -16,5 +17,10 @@ func main() {
 
 	routes.Rutas(router, DB)
 
-	router.Run(":8080")
+	// Configurar opciones CORS
+	config := cors.DefaultConfig()
+	config.AllowAllOrigins = true
+	router.Use(cors.New(config))
+
+	router.Run(":8083")
 }

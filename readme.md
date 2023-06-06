@@ -88,3 +88,17 @@ Para ejecutar los tests podemos usar el comando flutter test.
 ```shell
 flutter test ./ruta/al/archivo/a/testear.dart
 ```
+
+### Ejecución de golangci-lint de Go
+
+Para ejecutar el Analisis estatico se requiere la instalación de "golangci-lint" mediante el comando:
+
+```shell
+go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.53.1"
+```
+
+Paso siguiente se ejecuta el comando dentro de la carpeta /api
+
+```shell
+golangci-lint run -c golanci.yml
+```
