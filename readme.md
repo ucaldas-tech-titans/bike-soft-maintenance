@@ -62,3 +62,29 @@ flutter run
 ```
 
 Este comando iniciará la aplicación Flutter en un emulador o dispositivo físico si está conectado. Asegúrate de tener un emulador en ejecución o un dispositivo físico conectado antes de ejecutar este comando.
+
+## Ejecución de los tests unitarios
+
+### Ejecución de los tests de la API REST de Go
+
+Para ejecutar los tests podemos usar el comando go test.
+
+```shell
+go test ./...
+```
+
+Este comando ejecuta todos los tests para todos los archivos Go en el árbol de directorios actual.
+
+Si se quieren correr los tests de un solo archivo se puede especificar como argumento posicional:
+
+```shell
+go test ./ruta/al/archivo/a/testear.go
+```
+
+### Ejecución de los tests de la aplicación Flutter
+
+Para ejecutar los tests podemos usar el comando flutter test.
+
+```shell
+flutter test ./ruta/al/archivo/a/testear.dart
+```
