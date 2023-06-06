@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'package:bike_soft_mobile_app/models/producto.dart';
-import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class ControladorProductos {

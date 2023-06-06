@@ -43,7 +43,7 @@ class CustomDrawer extends StatelessWidget {
             iconColor: Colors.black,
             expandedAlignment: Alignment.bottomLeft,
             shape: RoundedRectangleBorder(
-                borderRadius: new BorderRadius.circular(20)),
+                borderRadius: BorderRadius.circular(20)),
             collapsedTextColor:
                 page == 'Productos' || page == 'Actulizar Productos'
                     ? Colors.red.shade500
